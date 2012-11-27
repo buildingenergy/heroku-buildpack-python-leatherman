@@ -204,9 +204,11 @@ if (grep -Fiq "hg+" requirements.txt) then
   pip install --use-mirrors mercurial | indent
 fi
 
+# Install heroku gem
+gem install heroku
+
 # Install dependencies with Pip.
 puts-step "Installing dependencies using pip version $(pip --version | awk '{print $2}')"
-pip install numpy==1.6.2 distribute==0.6.30 
 pip install --use-mirrors -r requirements.txt --exists-action=w --src=./.heroku/src | indent
 
 # Do additional application hackery if applications appears to be a Django app.
